@@ -13,5 +13,6 @@ elif arithmatic == "*":
 
 elif arithmatic == "/":
     print(first_number / second_number)
+else: print("INVALID ARITHMATIC")
 
 
