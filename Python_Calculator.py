@@ -1,1 +1,0 @@
-print("Make new calculator")
