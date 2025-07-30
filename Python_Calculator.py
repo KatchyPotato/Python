@@ -1,1 +1,1 @@
-print("MAKE NEW CALCULATOR")
+print("Make new calculator")
