@@ -1,4 +1,4 @@
-import tkinter
+import tkinter as tk
 
 number1 = int(input("Input first number:"))
 arithmetic = input("Input arithmetic:")
