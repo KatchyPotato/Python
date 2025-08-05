@@ -1,3 +1,5 @@
+import tkinter
+
 number1 = int(input("Input first number:"))
 arithmetic = input("Input arithmetic:")
 number2 = int(input("Input second number:"))
