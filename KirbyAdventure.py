@@ -19,7 +19,7 @@ haunted by him forever. GAME OVER""")
             elif fight == "No":
                 print("""\nYou slowly back away, promising him more hamburgers
 you lead him home, feeding him all the hamburgers your mom just made, plus
-the entire contents of the fridge. Kirby leaves after he has been satisfyied. YOU WIN""")
+the entire contents of the fridge. Kirby leaves after he has been satisfied. YOU WIN""")
 
         elif give_or_not == "No":
             print("""\n Bad idea. You eat it in front of his face.
