@@ -2,7 +2,7 @@ try_again = "Yes"
 
 while try_again == "Yes":
 
-    shoppinglist = input("Input the items you need:").split()
+    shoppinglist = input("\nInput the items you need:").split()
     what_to_get = {}
 
     for item in shoppinglist:
@@ -18,5 +18,7 @@ while try_again == "Yes":
 
     print("\nGenerated shoppinglist:")
     print(what_to_get)
-    new_list = input("\nWant to generate a new shoppinglist? (Yes or No)")
+    try_again = input("\nWant to generate a new shoppinglist? (Yes or No)")
+
+
   
