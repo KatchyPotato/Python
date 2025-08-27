@@ -1,10 +1,11 @@
 import turtle
 turtle.getscreen()
+turtle.hideturtle()
 turtle.bgcolor("navy")
 turtle.title("Solar System")
 turtle.penup()
 turtle.left(180)
-turtle.forward(100)
+turtle.forward(120)
 turtle.left(180)
 
 turtle.pencolor("yellow")
