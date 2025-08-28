@@ -155,7 +155,7 @@ turtle.right(90)
 turtle.forward(30)
 turtle.write("Neptune")
 
-#ChatGPT helped with code for rangom stars
+#ChatGPT helped with code for random stars
 
 stars = 500
 
