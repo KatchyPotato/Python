@@ -157,7 +157,7 @@ turtle.write("Neptune")
 
 #ChatGPT helped with code for random stars
 
-stars = 500
+stars = 100
 
 screen = turtle.Screen()
 width, height = screen.screensize()
@@ -174,3 +174,8 @@ while stars > 0:
     stars -= 1
 
 turtle.hideturtle()
+
+rocket = turtle.Turtle()
+rocket.penup()
+rocket.left(180)
+rocket.forward(200)
