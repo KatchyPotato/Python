@@ -1,5 +1,4 @@
-print("\n\033[90m^^^\033[31mPokemon Trainer\033[90m^^^")
-print("\033[32m---------------------")
+print("\n\033[31mC\033[37m-O-\033[31mD\033[94m Pokemon Trainer \033[31mC\033[37m-O-\033[31mD")
 
 running = True
 
@@ -47,21 +46,30 @@ evolved_pokedex = ["Venusaur", "Charizard", "Blastoise", "Butterfree", "Beedrill
 
 
 
-trainer_name = input("\n\033[33mInput Trainer Name:")
+trainer_name = input("\n\033[33mInput Trainer Name:\033[37m")
 
-pokemon = input("\nInput Basic Gen 1 Pokemon:")
+pokemon = input("\n\033[33mInput Basic Gen 1 Pokemon:\033[37m")
 if pokemon not in basic_pokedex:
 
     while pokemon not in basic_pokedex:
-        see_pokedex = input("\n\033[31mInvalid Pokemon! Would you like to see the basic Pokedex? Yes / No")
+        see_pokedex = input("\n\033[31mInvalid Pokemon! Would you like to see the basic Pokedex? Yes / No\033[37m")
 
         if see_pokedex == "No":
-            pokemon = input("\n\033[33mInput Basic Gen 1 Pokemon:")
+            pokemon = input("\n\033[33mInput Basic Gen 1 Pokemon:\033[37m")
 
         elif see_pokedex == "Yes":
-            print("\033[37m" + str(basic_pokedex))
-            pokemon = input("\n\033[33mInput Basic Gen 1 Pokemon:")
+            print("\n\033[37m" + str(basic_pokedex))
+            pokemon = input("\n\033[33mInput Basic Gen 1 Pokemon:\033[37m")
 
+pokemon_level = 1
+defence_level = 1
+offence_level = 1
 
+while running:
+    print("\n\033[31mC\033[37m-O-\033[31mD\033[94m Actions \033[31mC\033[37m-O-\033[31mD\n\033[37m~\033[33mTrain\n\033[37m~\033[33mFight\n\033[37m~\033[33mStats\033[37m")
+    action = input("\n\033[94mInput Action:\033[37m")
+
+    if action = "Stats":
+        print(f"\n\033[33mPokemon:\033[37m 
             
         
