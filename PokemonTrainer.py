@@ -1,4 +1,4 @@
-print("\n\033[31mC\033[37m-O-\033[31mD\033[94m Pokemon Trainer \033[31mC\033[37m-O-\033[31mD")
+print("\n\033[31m(\033[37m-O-\033[31m)\033[94m Pokemon Trainer \033[31m(\033[37m-O-\033[31m)")
 
 running = True
 
