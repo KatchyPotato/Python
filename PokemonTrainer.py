@@ -48,7 +48,8 @@ evolved_pokedex = ["Venusaur", "Charizard", "Blastoise", "Butterfree", "Beedrill
 
 trainer_name = input("\n\033[33mEnter Trainer Name:\033[37m")
 
-pokemon = input("\n\033[33mIEnter Basic Gen 1 Pokemon:\033[37m")
+pokemon = input("\n\033[33mIEnter Basic Gen 1 Pokemon:\033[37m").capitalize()
+
 if pokemon not in basic_pokedex:
 
     while pokemon not in basic_pokedex:
@@ -69,7 +70,7 @@ while running:
     print("\n\033[31mC\033[37m-O-\033[31mD\033[94m Actions \033[31mC\033[37m-O-\033[31mD\n\033[37m~\033[33mTrain\n\033[37m~\033[33mFight\n\033[37m~\033[33mStats\033[37m")
     action = input("\n\033[94mEnter Action:\033[37m")
 
-    if action = "Stats":
-        print(f"\n\033[33mPokemon:\033[37m 
+    #if action = "Stats":
+        #print(f"\n\033[33mPokemon:\033[37m 
             
         
