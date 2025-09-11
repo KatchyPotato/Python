@@ -48,29 +48,38 @@ evolved_pokedex = ["Venusaur", "Charizard", "Blastoise", "Butterfree", "Beedrill
 
 trainer_name = input("\n\033[33mEnter Trainer Name:\033[37m")
 
-pokemon = input("\n\033[33mIEnter Basic Gen 1 Pokemon:\033[37m").capitalize()
-
+pokemon = input("\n\033[33mEnter Basic Gen 1 Pokemon:\033[37m").capitalize()
 if pokemon not in basic_pokedex:
 
     while pokemon not in basic_pokedex:
-        see_pokedex = input("\n\033[31mInvalid Pokemon! Would you like to see the basic Pokedex? Yes / No\033[37m")
+        see_pokedex = input("\n\033[31mInvalid Pokemon! Would you like to see the basic Pokedex? Yes / No\033[37m").capitalize()
 
         if see_pokedex == "No":
-            pokemon = input("\n\033[33mEnter Basic Gen 1 Pokemon:\033[37m")
+            pokemon = input("\n\033[33mEnter Basic Gen 1 Pokemon:\033[37m").capitalize()
 
         elif see_pokedex == "Yes":
             print("\n\033[37m" + str(basic_pokedex))
-            pokemon = input("\n\033[33mEnter Basic Gen 1 Pokemon:\033[37m")
+            pokemon = input("\n\033[33mEnter Basic Gen 1 Pokemon:\033[37m").capitalize()
 
 pokemon_level = 1
 defence_level = 1
 offence_level = 1
+pokemon_status = "Basic"
+health = 50
 
 while running:
-    print("\n\033[31mC\033[37m-O-\033[31mD\033[94m Actions \033[31mC\033[37m-O-\033[31mD\n\033[37m~\033[33mTrain\n\033[37m~\033[33mFight\n\033[37m~\033[33mStats\033[37m")
-    action = input("\n\033[94mEnter Action:\033[37m")
+    print("\n\033[31mC\033[37m-O-\033[31mD\033[94m Actions \033[31mC\033[37m-O-\033[31mD\n\n\033[37m~\033[33mTrain\n\033[37m~\033[33mFight\n\033[37m~\033[33mStats\033[37m")
+    action = input("\n\033[94mEnter Action:\033[37m").capitalize()
 
-    #if action = "Stats":
-        #print(f"\n\033[33mPokemon:\033[37m 
-            
+    if action == "Stats":
+        print(f"\n\033[95mTrainer Name:\033[37m {trainer_name}")
+        print(f"\033[94mPokemon:\033[37m {pokemon}")
+        print(f"\033[33mStatus:\033[37m {pokemon_status}")
+        print(f"\033[31mOffence:\033[37m {offence_level}/5")
+        print(f"\033[32mDefence:\033[37m {defence_level}/5")
+        print(f"\033[91mHealth:\033[37m {health} HP")
+
+        back = ""
+        while back != "Back":
+            back = input("\n\033[37mType \"Back\" to Return to Actions").capitalize()
         
