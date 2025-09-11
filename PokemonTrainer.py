@@ -68,13 +68,14 @@ pokemon_status = "Basic"
 health = 50
 
 while running:
-    print("\n\033[31mC\033[37m-O-\033[31mD\033[94m Actions \033[31mC\033[37m-O-\033[31mD\n\n\033[37m~\033[33mTrain\n\033[37m~\033[33mFight\n\033[37m~\033[33mStats\033[37m")
+    print("\n\033[31m(\033[37m-O-\033[31m)\033[94m Actions \033[31m(\033[37m-O-\033[31m)\n\n\033[37m~\033[33mTrain\n\033[37m~\033[33mFight\n\033[37m~\033[33mStats\033[37m")
     action = input("\n\033[94mEnter Action:\033[37m").capitalize()
 
     if action == "Stats":
         print(f"\n\033[95mTrainer Name:\033[37m {trainer_name}")
         print(f"\033[94mPokemon:\033[37m {pokemon}")
         print(f"\033[33mStatus:\033[37m {pokemon_status}")
+        print(f"\033[92mPokemon Level:\033[37m {pokemon_level}/10")
         print(f"\033[31mOffence:\033[37m {offence_level}/5")
         print(f"\033[32mDefence:\033[37m {defence_level}/5")
         print(f"\033[91mHealth:\033[37m {health} HP")
