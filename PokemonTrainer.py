@@ -82,4 +82,5 @@ while running:
         back = ""
         while back != "Back":
             back = input("\n\033[37mType \"Back\" to Return to Actions").capitalize()
+
         
