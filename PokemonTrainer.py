@@ -68,11 +68,10 @@ if pokemon not in basic_pokedex:
 wins = 0
 losses = 0
 pokemon_level = 1
-defence_level = 1
-offence_level = 1
+defence_level = 0
+offence_level = 0
 pokemon_status = "Basic"
 health = 50
-
 xp = 0
 
 while running:
@@ -159,14 +158,16 @@ while running:
         print(f"\n\n\033[37mRESULTS:\n\n\033[32mVALID: {valid}\n\033[31mINVALID: {invalid}")
 
         if train_type == "Offence":
-            print(f"\n\033[32mOffence\033[37m Levels Gained: {valid}")
+            print(f"\n\033[31mOffence\033[37m Levels Gained: {valid}")
             offence_level += valid
 
         elif train_type == "Defence":
-            print(f"\n\033[31mDefence\033[37m Levels Gained: {valid}")
+            print(f"\n\033[32mDefence\033[37m Levels Gained: {valid}")
             defence_level += valid
 
         print(f"\033[95mXP\033[37m Levels Gained: {valid}")
+        xp += valid
+        
 
         back = ""
         while back != "Back":
