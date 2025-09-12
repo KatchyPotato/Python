@@ -27,7 +27,7 @@ colors = {
 #ChatGPT generated pokemon lists
 
 basic_pokedex =["Bulbasaur", "Charmander", "Squirtle", "Caterpie", "Weedle", "Pidgey",
-    "Rattata", "Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran♀", "Nidoran♂",
+    "Rattata", "Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran",
     "Clefairy", "Vulpix", "Jigglypuff", "Zubat", "Oddish", "Paras", "Venonat",
     "Diglett", "Meowth", "Psyduck", "Mankey", "Growlithe", "Poliwag", "Abra",
     "Machop", "Bellsprout", "Tentacool", "Geodude", "Ponyta", "Slowpoke",
@@ -36,7 +36,7 @@ basic_pokedex =["Bulbasaur", "Charmander", "Squirtle", "Caterpie", "Weedle", "Pi
     "Eevee", "Omanyte", "Kabuto", "Dratini"]
 
 evolved_pokedex = ["Venusaur", "Charizard", "Blastoise", "Butterfree", "Beedrill", "Pidgeot",
-    "Raticate", "Fearow", "Arbok", "Raichu", "Sandslash", "Nidoqueen", "Nidoking",
+    "Raticate", "Fearow", "Arbok", "Raichu", "Sandslash", "Nidoking",
     "Clefable", "Ninetales", "Wigglytuff", "Golbat", "Vileplume", "Parasect", "Venomoth",
     "Dugtrio", "Persian", "Golduck", "Primeape", "Arcanine", "Poliwrath", "Alakazam",
     "Machamp", "Victreebel", "Tentacruel", "Golem", "Rapidash", "Slowbro",
@@ -52,7 +52,7 @@ pokemon = input("\n\033[33mEnter Basic Gen 1 Pokemon:\033[37m").capitalize()
 if pokemon not in basic_pokedex:
 
     while pokemon not in basic_pokedex:
-        see_pokedex = input("\n\033[31mInvalid Pokemon! Would you like to see the basic Pokedex? Yes / No\033[37m").capitalize()
+        see_pokedex = input("\n\033[31mInvalid Pokemon! Would you like to see the basic Pokedex?\033[37m Yes/No").capitalize()
 
         if see_pokedex == "No":
             pokemon = input("\n\033[33mEnter Basic Gen 1 Pokemon:\033[37m").capitalize()
