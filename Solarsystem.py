@@ -174,8 +174,3 @@ while stars > 0:
     stars -= 1
 
 turtle.hideturtle()
-
-rocket = turtle.Turtle()
-rocket.penup()
-rocket.left(180)
-rocket.forward(200)
