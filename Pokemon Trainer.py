@@ -222,20 +222,18 @@ while running:
             opponent_health = 100
             opponent_attack = 20
 
-
-        time.sleep(0.05)
-        print(f"\n\033[91mOpponent:\033[37m {opponent}")
-        time.sleep(0.05)
-        print(f"\n\033[92mHealth:\033[37m {opponent_health} HP")
-        time.sleep(0.05)
-        print(f"\033[31mAttack:\033[37m {opponent_attack}")
-
         battle_health = health
         battle_attack = offence_level
         heal_strength = defense_level
         heals_left = 3
 
         while battle_health > 0 and opponent_health > 0:
+            time.sleep(0.05)
+            print(f"\n\033[95mOpponent:\033[37m {opponent}")
+            time.sleep(0.05)
+            print(f"\033[92mHealth:\033[37m {opponent_health} HP")
+            time.sleep(0.05)
+            print(f"\033[31mAttack:\033[37m {opponent_attack}")
             time.sleep(0.05)
             print("\n\033[31m(\033[37m-O-\033[31m)\033[94m Battle Actions \033[31m(\033[37m-O-\033[31m)\n\n\033[37m~\033[33mAttack\n\033[37m~\033[33mHeal\n\033[37m~\033[33mStats\033[37m")
 
@@ -292,6 +290,7 @@ while running:
             #Third battle action, attack
 
             elif battle_action == "Attack":
+                pass
 
             
 
