@@ -74,13 +74,14 @@ if pokemon not in basic_pokedex:
 wins = 0
 losses = 0
 pokemon_level = 1
-defence_level = 0
+defense_level = 0
 offence_level = 0
 pokemon_status = "Basic"
 health = 50
 xp = 0
 
 while running:
+
     time.sleep(0.05)
     print("\n\033[31m(\033[37m-O-\033[31m)\033[94m Actions \033[31m(\033[37m-O-\033[31m)\n\n\033[37m~\033[33mTrain\n\033[37m~\033[33mBattle\n\033[37m~\033[33mStats\033[37m")
     time.sleep(0.05)
@@ -102,7 +103,7 @@ while running:
         time.sleep(0.05)
         print(f"\033[31mOffence:\033[37m {offence_level}/50")
         time.sleep(0.05)
-        print(f"\033[32mDefence:\033[37m {defence_level}/50")
+        print(f"\033[32mDefence:\033[37m {defense_level}/20")
         time.sleep(0.05)
         print(f"\033[91mHealth:\033[37m {health} HP")
         time.sleep(0.05)
@@ -127,16 +128,16 @@ while running:
     #Second action, train
 
         train_type = ""
-        while train_type != "Offence" and train_type != "Defence":
+        while train_type != "Offence" and train_type != "Defense":
             time.sleep(0.05)
-            train_type = input("\n\033[37mTrain\033[31m Offence\033[37m or\033[32m Defence\033[37m:").capitalize()
+            train_type = input("\n\033[37mTrain\033[31m Offence\033[37m or\033[32m Defense\033[37m:").capitalize()
 
         if train_type == "Offence":
             word_bank = ["attack", "aggression", "assault", "barrage", "bombardment", "charge", "incursion",
                          "invasion", "onslaught", "raid", "strike", "violation", "agro", "AoE", "blitz", "waylay",
                          "melee", "foray", "siege", "enroachment", "strike", "coup", "flank", "volley", "agro"]
 
-        elif train_type == "Defence":
+        elif train_type == "Defense":
             word_bank = ["defend", "protect", "heal", "sheild", "dodge", "counter", "cover", "resistance", "withstand", "duck", "jump", "dash",
                           "tank", "retrograde", "resist", "repel", "hold", "screen", "health", "armor", "escape", "mobility", "movement", "assist", "position"]
 
@@ -184,13 +185,13 @@ while running:
 
         if train_type == "Offence":
             time.sleep(0.05)
-            print(f"\n\033[31mOffence\033[37m Levels Gained: {valid}")
-            offence_level += valid
+            print(f"\n\033[31mOffence\033[37m Levels Gained: {round(valid / 3)}")
+            offence_level += round(valid / 3)
 
-        elif train_type == "Defence":
+        elif train_type == "Defense":
             time.sleep(0.05)
-            print(f"\n\033[32mDefence\033[37m Levels Gained: {valid}")
-            defence_level += valid
+            print(f"\n\033[32mDefense\033[37m Levels Gained: {round(valid / 3)}")
+            defense_level += round(valid / 3)
         time.sleep(0.05)
         print(f"\033[95mXP\033[37m Levels Gained: {valid}")
         xp += valid
@@ -200,6 +201,107 @@ while running:
         while back != "Back":
             time.sleep(0.05)
             back = input("\n\033[37mType \"Back\" to Return to Actions").capitalize()
+
+    elif action == "Battle":
+
+        #Third action, battle
+
+        time.sleep(0.05)
+
+        difficulty = ""
+        while difficulty != "Normal" and difficulty != "Hard":
+            difficulty = input("\n\033[92mNormal\033[37m or\033[31m Hard\033[37m?").capitalize()
+
+        if difficulty == "Normal":
+            opponent = random.choice(basic_pokedex)
+            opponent_health = 50
+            opponent_attack = 10
+
+        elif difficulty == "Hard":
+            opponent = random.choice(evolved_pokedex)
+            opponent_health = 100
+            opponent_attack = 20
+
+
+        time.sleep(0.05)
+        print(f"\n\033[91mOpponent:\033[37m {opponent}")
+        time.sleep(0.05)
+        print(f"\n\033[92mHealth:\033[37m {opponent_health} HP")
+        time.sleep(0.05)
+        print(f"\033[31mAttack:\033[37m {opponent_attack}")
+
+        battle_health = health
+        battle_attack = offence_level
+        heal_strength = defense_level
+        heals_left = 3
+
+        while battle_health > 0 and opponent_health > 0:
+            time.sleep(0.05)
+            print("\n\033[31m(\033[37m-O-\033[31m)\033[94m Battle Actions \033[31m(\033[37m-O-\033[31m)\n\n\033[37m~\033[33mAttack\n\033[37m~\033[33mHeal\n\033[37m~\033[33mStats\033[37m")
+
+            battle_action = ""
+            while battle_action != "Attack" and battle_action != "Heal" and battle_action != "Stats":
+                time.sleep(0.05)
+                battle_action = input("\n\033[94mEnter Battle Action:\033[37m").capitalize()
+
+            #First battle action, stats
+
+            if battle_action == "Stats":
+                print(f"\n\033[94mPokemon:\033[37m {pokemon}")
+                time.sleep(0.05)
+                print(f"\033[91mHealth:\033[37m {health} HP")
+                time.sleep(0.05)
+                print(f"\033[31mAttack:\033[37m {battle_attack}")
+                time.sleep(0.05)
+                print(f"\033[92mHeals Left:\033[37m {heals_left}")
+                time.sleep(0.05)
+                print(f"\033[32mHeal Strength:\033[37m {heal_strength} HP")
+
+                back = ""
+                while back != "Back":
+                    time.sleep(0.05)
+                    back = input("\n\033[37mType \"Back\" to Return to Battle Actions").capitalize()
+
+            #Second battle action, heal
+
+            elif battle_action == "Heal":
+                if heals_left > 0:
+                    if battle_health == health:
+                        time.sleep(0.05)
+                        print("\n\033[37mYou are already at max health!")
+
+                    elif battle_health < health:
+                        battle_health += heal_strength
+
+                        if battle_health > health:
+                            battle_health = health
+                        else:
+                            pass
+                        heals_left -= 1
+                        
+                else:
+                    time.sleep(0.05)
+                    print("\n\033[37mYou have used up all your heals!")
+
+                back = ""
+                while back != "Back":
+                    time.sleep(0.05)
+                    back = input("\n\033[37mType \"Back\" to Return to Battle Actions").capitalize()
+
+
+            #Third battle action, attack
+
+            elif battle_action == "Attack":
+
+            
+
+
+           
+                        
+
+        
+
+    
 
         
         
