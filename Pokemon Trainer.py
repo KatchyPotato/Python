@@ -121,7 +121,7 @@ while running:
         back = ""
         while back != "Back":
             time.sleep(0.05)
-            back = input("\n\033[37mType \"Back\" to Return to Actions").capitalize()
+            back = input("\n\033[37mType \"Back\" to return to actions").capitalize()
 
     elif action == "Train":
 
@@ -197,10 +197,12 @@ while running:
         xp += valid
         
 
+        
         back = ""
         while back != "Back":
             time.sleep(0.05)
-            back = input("\n\033[37mType \"Back\" to Return to Actions").capitalize()
+            back = input("\n\033[37mType \"Back\" to return to actions").capitalize()
+        
 
     elif action == "Battle":
 
@@ -255,10 +257,10 @@ while running:
                 time.sleep(0.05)
                 print(f"\033[32mHeal Strength:\033[37m {heal_strength} HP")
 
-                back = ""
-                while back != "Back":
+                end_turn = ""
+                while end_turn != "Done":
                     time.sleep(0.05)
-                    back = input("\n\033[37mType \"Back\" to Return to Battle Actions").capitalize()
+                    end_turn = input("\n\033[37mType \"Done\" to end turn").capitalize()
 
             #Second battle action, heal
 
@@ -281,11 +283,10 @@ while running:
                     time.sleep(0.05)
                     print("\n\033[37mYou have used up all your heals!")
 
-                back = ""
-                while back != "Back":
+                end_turn = ""
+                while end_turn != "Done":
                     time.sleep(0.05)
-                    back = input("\n\033[37mType \"Back\" to Return to Battle Actions").capitalize()
-
+                    end_turn = input("\n\033[37mType \"Done\" to end turn").capitalize()
 
             #Third battle action, attack
 
