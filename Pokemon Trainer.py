@@ -217,17 +217,21 @@ while running:
         if difficulty == "Normal":
             opponent = random.choice(basic_pokedex)
             opponent_health = 50
-            opponent_attack = 10
+            opponent_attack = 5
 
         elif difficulty == "Hard":
             opponent = random.choice(evolved_pokedex)
             opponent_health = 100
-            opponent_attack = 20
+            opponent_attack = 10
 
         battle_health = health
         battle_attack = offence_level
         heal_strength = defense_level
         heals_left = 3
+        min_damage = battle_attack
+        max_damage = battle_attack + 5
+        opponent_min_damage = opponent_attack
+        opponent_max_damage = opponent_attack + 5
 
         while battle_health > 0 and opponent_health > 0:
             time.sleep(0.05)
@@ -247,9 +251,10 @@ while running:
             #First battle action, stats
 
             if battle_action == "Stats":
+                time.sleep(0.05)
                 print(f"\n\033[94mPokemon:\033[37m {pokemon}")
                 time.sleep(0.05)
-                print(f"\033[91mHealth:\033[37m {health} HP")
+                print(f"\033[91mHealth:\033[37m {battle_health} HP")
                 time.sleep(0.05)
                 print(f"\033[31mAttack:\033[37m {battle_attack}")
                 time.sleep(0.05)
@@ -272,9 +277,12 @@ while running:
 
                     elif battle_health < health:
                         battle_health += heal_strength
+                        time.sleep(0.05)
+                        print("\n\033[37mPokemon Healed")
 
                         if battle_health > health:
                             battle_health = health
+                            
                         else:
                             pass
                         heals_left -= 1
@@ -291,7 +299,54 @@ while running:
             #Third battle action, attack
 
             elif battle_action == "Attack":
-                pass
+                damage_dealt = random.randint(min_damage, max_damage)
+                opponent_health -= damage_dealt
+                time.sleep(0.05)
+                print(f"\n\033[37m{pokemon} dealt {damage_dealt} damage to {opponent}")
+
+                end_turn = ""
+                while end_turn != "Done":
+                    time.sleep(0.05)
+                    end_turn = input("\n\033[37mType \"Done\" to end turn").capitalize()
+
+            #Opponent Turn
+
+            opponent_damage_dealt = random.randint(opponent_min_damage, opponent_max_damage)
+            battle_health -= opponent_damage_dealt
+            time.sleep(0.05)
+            print(f"\n\033[37m{opponent} dealt {opponent_damage_dealt} damage to {pokemon}")
+            time.sleep(0.05)
+            print(f"\033[91mYour Health:\033[37m {battle_health} HP")
+
+    #Results
+            
+    see_results = ""
+    while see_results != "Done":
+        time.sleep(0.05)
+        see_results = input("\n\033[91mBattle over. Type \"Done\" to see results").capitalize()
+
+    if opponent_health <= 0:
+        time.sleep(0.05)
+        print("\n\033[33mResults:")
+        time.sleep(0.05)
+        print("\033[32mWin!")
+        time.sleep(0.05)
+        print(f"\033[95mXP\033[37m Levels Gained: 10")
+        xp += 10
+
+        back = ""
+        while back != "Back":
+            time.sleep(0.05)
+            back = input("\n\033[37mType \"Back\" to return to actions").capitalize()
+
+    elif battle_health <= 0:
+        pass
+        
+            
+
+
+                
+                
 
             
 
