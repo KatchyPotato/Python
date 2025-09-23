@@ -318,31 +318,31 @@ while running:
             time.sleep(0.05)
             print(f"\033[91mYour Health:\033[37m {battle_health} HP")
 
-    #Results
-            
-    see_results = ""
-    while see_results != "Done":
-        time.sleep(0.05)
-        see_results = input("\n\033[91mBattle over. Type \"Done\" to see results").capitalize()
-
-    if opponent_health <= 0:
-        time.sleep(0.05)
-        print("\n\033[33mResults:")
-        time.sleep(0.05)
-        print("\033[32mWin!")
-        time.sleep(0.05)
-        print(f"\033[95mXP\033[37m Levels Gained: 10")
-        xp += 10
-
-        back = ""
-        while back != "Back":
+        #Results
+                
+        see_results = ""
+        while see_results != "Done":
             time.sleep(0.05)
-            back = input("\n\033[37mType \"Back\" to return to actions").capitalize()
+            see_results = input("\n\033[37mBattle over. Type \"Done\" to see results").capitalize()
 
-    elif battle_health <= 0:
-        pass
-        
+        if opponent_health <= 0:
+            time.sleep(0.05)
+            print("\n\033[33mResults:")
+            time.sleep(0.05)
+            print("\033[32mWin!")
+            time.sleep(0.05)
+            print(f"\033[95mXP\033[37m Levels Gained: 10")
+            xp += 10
+
+            back = ""
+            while back != "Back":
+                time.sleep(0.05)
+                back = input("\n\033[37mType \"Back\" to return to actions").capitalize()
+
+        elif battle_health <= 0:
+            pass
             
+                
 
 
                 
