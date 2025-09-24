@@ -96,14 +96,27 @@ while running:
         print(f"\033[94mPokemon:\033[37m {pokemon}")
         time.sleep(0.05)
         print(f"\033[33mStatus:\033[37m {pokemon_status}")
-        time.sleep(0.05)
-        print(f"\033[92mPokemon Level:\033[37m {pokemon_level}/5")
+        if pokemon_status == "Basic":
+            time.sleep(0.05)
+            print(f"\033[92mPokemon Level:\033[37m {pokemon_level}/5")
+        elif pokemon_status == "Evolved":
+            time.sleep(0.05)
+            print(f"\033[92mPokemon Level:\033[37m {pokemon_level}/10")
+            
         time.sleep(0.05)
         print(f"\033[95mXP:\033[37m {xp}/100")
-        time.sleep(0.05)
-        print(f"\033[31mOffence:\033[37m {offence_level}/50")
-        time.sleep(0.05)
-        print(f"\033[32mDefence:\033[37m {defense_level}/20")
+        if pokemon_status == "Basic":
+            time.sleep(0.05)
+            print(f"\033[31mOffence:\033[37m {offence_level}/20")
+        elif pokemon_status == "Evolved":
+            time.sleep(0.05)
+            print(f"\033[31mOffence:\033[37m {offence_level}/50")
+        if pokemon_status == "Basic":
+            time.sleep(0.05)
+            print(f"\033[32mDefence:\033[37m {defense_level}/20")
+        elif pokemon_status == "Evolved":
+            time.sleep(0.05)
+            print(f"\033[32mDefence:\033[37m {defense_level}/50")
         time.sleep(0.05)
         print(f"\033[91mHealth:\033[37m {health} HP")
         time.sleep(0.05)
@@ -111,7 +124,7 @@ while running:
         time.sleep(0.05)
         print(f"\033[31mLosses:\033[37m {losses}")
         if losses > 0:
-            ratio = wins / losses
+            ratio = round(wins / losses, 1)
         else:
             ratio = "N.A."
         time.sleep(0.05)
@@ -134,7 +147,7 @@ while running:
 
         if train_type == "Offence":
             word_bank = ["attack", "aggression", "assault", "barrage", "bombardment", "charge", "incursion",
-                         "invasion", "onslaught", "raid", "strike", "violation", "agro", "AoE", "blitz", "waylay",
+                         "invasion", "onslaught", "raid", "strike", "violation", "agro", "aoe", "blitz", "waylay",
                          "melee", "foray", "siege", "enroachment", "strike", "coup", "flank", "volley", "agro"]
 
         elif train_type == "Defense":
@@ -217,12 +230,12 @@ while running:
         if difficulty == "Normal":
             opponent = random.choice(basic_pokedex)
             opponent_health = 50
-            opponent_attack = 5
+            opponent_attack = 10
 
         elif difficulty == "Hard":
             opponent = random.choice(evolved_pokedex)
-            opponent_health = 100
-            opponent_attack = 10
+            opponent_health = 150
+            opponent_attack = 15
 
         battle_health = health
         battle_attack = offence_level
@@ -325,40 +338,73 @@ while running:
             time.sleep(0.05)
             see_results = input("\n\033[37mBattle over. Type \"Done\" to see results").capitalize()
 
-        if opponent_health <= 0:
+        if opponent_health < battle_health:
             time.sleep(0.05)
             print("\n\033[33mResults:")
             time.sleep(0.05)
             print("\033[32mWin!")
             time.sleep(0.05)
-            print(f"\033[95mXP\033[37m Levels Gained: 10")
+            if opponent in evolved_pokedex:
+                print(f"\033[95mXP\033[37m Levels Gained: 15")
+            elif opponent in basic_pokedex:
+                print(f"\033[95mXP\033[37m Levels Gained: 10")
             xp += 10
+            wins += 1
 
-            back = ""
-            while back != "Back":
-                time.sleep(0.05)
-                back = input("\n\033[37mType \"Back\" to return to actions").capitalize()
+        elif battle_health < opponent_health:
+            time.sleep(0.05)
+            print("\n\033[33mResults:")
+            time.sleep(0.05)
+            print("\033[31mLoss!")
+            time.sleep(0.05)
+            print(f"\033[95mXP\033[37m Levels Gained: 0")
+            losses += 1
 
-        elif battle_health <= 0:
-            pass
-            
-                
-
-
-                
-                
-
-            
-
-
-           
-                        
+        elif battle_health == opponent_health:
+            time.sleep(0.05)
+            print("\n\033[33mResults:")
+            time.sleep(0.05)
+            print("\033[95mDraw!")
+            time.sleep(0.05)
+            print(f"\033[95mXP\033[37m Levels Gained: 5")
 
         
+        back = ""
+        while back != "Back":
+            time.sleep(0.05)
+            back = input("\n\033[37mType \"Back\" to return to actions").capitalize()
 
-    
+    #Final stats check
 
-        
-        
+    if xp >= 100:
+        pokemon_level += 1
+        time.sleep(0.05)
+        print(f"\n\033[95mYou gained 100 XP!\033[37m Your pokemon is now level {pokemon_level}")
+        time.sleep(0.05)
+        print("\033[37mXP reset")
+        xp = 0
 
-        
+    if pokemon_status == "Basic" and pokemon_level == 5:
+        print(f"\n\033[93mYou gained 5 levels!\033[37m Your pokemon evolved from {pokemon} to {evolved_pokedex[basic_pokedex.index(pokemon)]}")
+        time.sleep(0.05)
+        print("\033[37mStats upgraded. You can now gain more offence and defense levels")
+        pokemon_status = "Evolved"
+        pokemon = evolved_pokedex[basic_pokedex.index(pokemon)]
+        health = 100 
+
+    if pokemon_status == "Basic":
+        if offence_level > 20:
+            offence_level = 20
+        if defense_level > 20:
+            defense_level = 20
+        if pokemon_level > 5:
+            pokemon_level = 5
+
+
+    elif pokemon_status == "Evolved":
+        if offence_level > 50:
+            offence_level = 50
+        if defense_level > 50:
+            defense_level = 50
+        if pokemon_level > 10:
+            pokemon_level = 10       
