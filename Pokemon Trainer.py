@@ -104,7 +104,7 @@ while running:
             print(f"\033[92mPokemon Level:\033[37m {pokemon_level}/10")
             
         time.sleep(0.05)
-        print(f"\033[95mXP:\033[37m {xp}/100")
+        print(f"\033[95mXP:\033[37m {xp}/50")
         if pokemon_status == "Basic":
             time.sleep(0.05)
             print(f"\033[31mOffence:\033[37m {offence_level}/20")
@@ -376,10 +376,10 @@ while running:
 
     #Final stats check
 
-    if xp >= 100:
+    if xp >= 50:
         pokemon_level += 1
         time.sleep(0.05)
-        print(f"\n\033[95mYou gained 100 XP!\033[37m Your pokemon is now level {pokemon_level}")
+        print(f"\n\033[95mYou gained 50 XP!\033[37m Your pokemon is now level {pokemon_level}")
         time.sleep(0.05)
         print("\033[37mXP reset")
         xp = 0
