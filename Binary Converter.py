@@ -11,19 +11,45 @@ running = True
 
 while running:
     time.sleep(0.05)
-    choice = input("\nEnter 1 or 2:")
+    choice = input("\nEnter 1 or 2: ")
     while choice not in ["1", "2"]:
         time.sleep(0.05)
-        choice = input("Enter 1 or 2:")
+        choice = input("Enter 1 or 2: ")
 
     if choice == "1":
 
         while True:
-            number = input("\nEnter a number: ")
+            raw_input = input("\nEnter a number: ")
             try:
-                value = int(number)
-                break  #Check if input is an integer
+                number = int(raw_input)
+                if number < 0:
+                    time.sleep(0.05)
+                    print("\nPlease enter a positive number")
+                    continue
+                break
             except ValueError:
                 time.sleep(0.05)
-                number = input("Enter a number: ")
+                print("\nPlease enter a whole number")
+
+        if number == 0:
+            time.sleep(0.05)
+            print("\n0 in Binary: 0")
+
+        else:
+            number_for_string = number
+            raw_binary = ""
+
+            while number > 0:
+                bit = number % 2
+                raw_binary += str(bit)
+                number //= 2
+
+            binary = raw_binary[::-1]
+            time.sleep(0.05)
+            print(f"\n{number_for_string} in Binary: {binary}")
+
+
+            
+            
+            
                     
