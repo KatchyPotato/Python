@@ -1,7 +1,19 @@
 import random
 print("-Hangman-")
 
-word_list = ["katchy", "python", "minecraft", "technoblade", "evit", "java", "c++", "c#", "hypixel"]
+word_list = [
+    "apple", "banana", "orange", "grape", "peach", "cherry", "lemon", "lime", "mango", "pear",
+    "table", "chair", "window", "door", "floor", "ceiling", "wall", "roof", "garden", "fence",
+    "river", "mountain", "ocean", "desert", "forest", "valley", "island", "beach", "hill", "cave",
+    "dog", "cat", "horse", "tiger", "lion", "bear", "snake", "rabbit", "mouse", "sheep",
+    "school", "teacher", "student", "pencil", "paper", "book", "eraser", "desk", "backpack", "ruler",
+    "car", "truck", "bus", "train", "airplane", "bicycle", "boat", "scooter", "subway", "taxi",
+    "music", "guitar", "piano", "violin", "drum", "trumpet", "flute", "song", "dance", "movie",
+    "summer", "winter", "spring", "autumn", "rain", "snow", "wind", "storm", "cloud", "sun",
+    "computer", "phone", "camera", "television", "radio", "light", "clock", "watch", "mirror", "bottle",
+    "bread", "cheese", "butter", "milk", "coffee", "tea", "sugar", "salt", "pepper", "honey"
+]
+
 word = random.choice(word_list)
 
 word_length = len(word)
