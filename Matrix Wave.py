@@ -71,7 +71,7 @@ print("~\033[90mMechanical\033[0m")
 choice = ""
 while choice not in ["Rainbow", "Binary", "Fire", "Neon", "Mechanical"]:
     time.sleep(0.05)
-    choice = input("\nEnter Wave Option:").capitalize()
+    choice = input("\nEnter Wave Option: ").capitalize()
 
 #Rainbow wave option
 
