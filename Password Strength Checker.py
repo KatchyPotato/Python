@@ -1,6 +1,8 @@
 import time
 
-#ChatGPT for lists, debugging, and some logic
+#-------------------------------------------------------------------------
+#ChatGPT generated the lists, rewrote much of the code, and fixed my logic
+#-------------------------------------------------------------------------
 
 # Colors
 
